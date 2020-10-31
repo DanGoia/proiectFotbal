@@ -28,9 +28,8 @@ public class ArenaController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-
     public ResponseEntity<ArenaDto> addNewArena(@RequestBody ArenaDto arenaDto) {
-        return ResponseEntity.status(HttpStatus.OK).body(arenaService.createNewArena(arenaDto));
+        return ResponseEntity.status(HttpStatus.CREATED).body(arenaService.createNewArena(arenaDto));
     }
 
     @GetMapping
