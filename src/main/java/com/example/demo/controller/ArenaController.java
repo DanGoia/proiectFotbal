@@ -1,7 +1,6 @@
 package com.example.demo.controller;
 
 import com.example.demo.dto.ArenaDto;
-import com.example.demo.dto.TeamDto;
 import com.example.demo.service.ArenaService;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -15,7 +14,7 @@ import java.util.List;
 @RestController
 @OpenAPIDefinition
 @RequestMapping("/arena")
-@Tag(name = "Teams")
+@Tag(name = "Arenas")
 
 public class ArenaController {
 

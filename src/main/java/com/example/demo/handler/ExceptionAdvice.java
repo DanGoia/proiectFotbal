@@ -16,14 +16,31 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 public class ExceptionAdvice extends ResponseEntityExceptionHandler {
 
     @RequestBody
+    @ExceptionHandler(TeamNotFoundException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public @ResponseBody String teamNotFoundHandler(TeamNotFoundException t) {
+        return t.getMessage();
+    }
+
+    @RequestBody
+    @ExceptionHandler(IdTeamAlreadyExists.class)
+    @ResponseStatus(HttpStatus.CONFLICT)
+    public @ResponseBody String idAlreadyExists(IdTeamAlreadyExists i) {
+        return i.getMessage();
+    }
+
+    @RequestBody
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @ExceptionHandler(ArenaNotFoundException.class)
-    @ResponseBody String arenaNotFoundHandler(ArenaNotFoundException arenaNotFoundException){return arenaNotFoundException.getMessage();}
+    public @ResponseBody String arenaNotFoundHandler(ArenaNotFoundException arenaNotFoundException){return arenaNotFoundException.getMessage();}
 
     @RequestBody
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @ExceptionHandler(ArenaIdAlreadyExistsExceptions.class)
-    @ResponseBody String arenaIdAlreadyExists(ArenaIdAlreadyExistsExceptions arenaIdAlreadyExistsExceptions){return arenaIdAlreadyExistsExceptions.getMessage();}
+    public @ResponseBody String arenaIdAlreadyExists(ArenaIdAlreadyExistsExceptions arenaIdAlreadyExistsExceptions){return arenaIdAlreadyExistsExceptions.getMessage();}
+
+    @RequestBody
+    @ResponseStatus(HttpStatus.NOT_FOUND)
     @ExceptionHandler(PlayerNotFoundException.class)
     public @ResponseBody String playerNotFoundHandler(PlayerNotFoundException p) { return p.getMessage(); }
 

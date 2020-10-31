@@ -1,13 +1,13 @@
-package com.example.demo.service;
+package com.example.demo.service.impl;
 
 import com.example.demo.dto.ArenaDto;
 import com.example.demo.entityDao.Arena;
 import com.example.demo.entityDao.repository.ArenaRepository;
 import com.example.demo.handler.ArenaIdAlreadyExistsExceptions;
 import com.example.demo.handler.ArenaNotFoundException;
+import com.example.demo.service.ArenaService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
